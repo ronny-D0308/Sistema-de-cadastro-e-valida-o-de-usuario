@@ -23,10 +23,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->store_result();
 
     if ($stmt->num_rows > 0) {
-        $stmt->bind_result($hashed_password, $tipo_usuario);
+        $stmt->bind_result($pass $tipo_usuario);
         $stmt->fetch();
 
-        if(password_verify($pass, $hashed_password) && $tipo == $tipo_usuario) {
+        if($pass && $tipo == $tipo_usuario) {
             $_SESSION['usuario'] = $user;
             $_SESSION['tipo_usuario'] = $tipo;
 
